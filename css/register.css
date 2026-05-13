@@ -1,0 +1,193 @@
+/* ═══════════════════════════════════════
+        TOKENS
+    ═══════════════════════════════════════ */
+    :root {
+      --maroon:      #3D0C11;
+      --maroon-dark: #2A0809;
+      --maroon-mid:  #4e1016;
+      --orange:      #E8572A;
+      --orange-h:    #ff6a3a;
+      --cream:       #F5EDE3;
+      --white:       #ffffff;
+      --text:        #1a1a1a;
+      --text-m:      #555;
+      --border:      #e0d8d0;
+
+      --header-logo-h:   60px;
+      --header-logo-h-m: 40px;
+      --nav-h:           46px;
+    }
+
+    /* ═══════════════════════════════════════
+        RESET / BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+    img  { max-width: 100%; display: block; }
+    a    { text-decoration: none; }
+
+    /* ═══════════════════════════════════════
+        NEW CONTENT (FEES & ACCOUNT)
+    ═══════════════════════════════════════ */
+    .reg-section {
+      padding: 60px 0;
+      background: #fff;
+    }
+    .reg-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .reg-block {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+      align-items: start;
+    }
+    .qr-card {
+      background: var(--orange);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(232, 87, 42, 0.2);
+    }
+    .qr-card img {
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .qr-card span {
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .reg-info h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 5.6vw, 5rem);
+      color: var(--maroon);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .reg-info h2::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 60px; height: 3px;
+      background: var(--orange);
+    }
+    
+    /* Table Styling */
+    .fees-table-wrapper {
+      background: var(--cream);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .fees-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .fees-table th, .fees-table td {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 14.5px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .fees-table th {
+      background: var(--maroon);
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    .fees-table tr:last-child td { border-bottom: none; }
+    .fees-table tr:nth-child(even) { background: rgba(255,255,255,0.4); }
+    .fees-table .price-col {
+      text-align: right;
+      font-weight: 700;
+      color: var(--maroon);
+    }
+
+    /* Account Details Styling */
+    .account-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-left: 5px solid var(--orange);
+      padding: 25px;
+      border-radius: 8px;
+    }
+    .account-item {
+      display: flex;
+      margin-bottom: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .account-item strong {
+      width: 160px;
+      color: var(--maroon);
+      flex-shrink: 0;
+    }
+    .account-item span {
+      color: var(--text-m);
+    }
+
+    @media (max-width: 860px) {
+      .reg-block { grid-template-columns: 1fr; gap: 30px; }
+      .qr-card { max-width: 300px; margin: 0 auto; }
+      .account-item { flex-direction: column; }
+      .account-item strong { width: 100%; margin-bottom: 2px; }
+    }
+
+    /* ═══════════════════════════════════════
+        RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      :root { --header-logo-h: 50px; }
+      .logo-divider { height: 46px; }
+    }
+
+    @media (max-width: 860px) {
+      :root { --header-logo-h: var(--header-logo-h-m); }
+      .nav-toggle { display: flex; }
+      .header-row1 { padding-right: calc(clamp(12px,3vw,24px) + 38px + 14px); min-height: 72px; }
+      .logo-divider { height: 36px; }
+      .header-row2 { display: none; border-top: 1px solid rgba(255,255,255,.08); }
+      .header-row2.open { display: block; }
+      .nav-list { flex-direction: column; height: auto; }
+      .nav-list > li { flex: none; justify-content: flex-start; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .nav-list > li + li::before { display: none; }
+      .nav-list > li > a { justify-content: flex-start; padding: 13px 20px; font-size: 13px; letter-spacing: .5px; border-bottom: none; border-left: 3px solid transparent; white-space: normal; }
+      .nav-list > li > a:hover, .nav-list > li > a.active { border-left-color: var(--orange); border-bottom-color: transparent; background: rgba(255,255,255,.06); }
+      .nav-list > li:hover .nav-dropdown { display: none; }
+      .nav-list > li.open .nav-dropdown { display: block; }
+      .nav-dropdown { position: static; box-shadow: none; border-top: none; border-left: 3px solid var(--orange); margin-left: 22px; background: rgba(0,0,0,.18); min-width: 0; }
+      .nav-dropdown li a { font-size: 12.5px; padding: 10px 16px; white-space: normal; }
+
+      .slide img.slide-img { height: 380px; }
+      .footer-contacts-section, .footer-asi-section { padding-left: clamp(16px,4vw,32px); padding-right: clamp(16px,4vw,32px); }
+    }
+
+    @media (max-width: 600px) {
+      .logos-group { flex-wrap: wrap; gap: 6px; }
+      .logo-divider { display: none; }
+      .logo-wrap, .logo-wrap.logo-center { padding: 4px 10px; }
+      .slide img.slide-img { height: 260px; }
+      .floating-ctas { display: none; }
+      .f-contacts-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-bottom-inner { flex-direction: column; gap: 8px; }
+      .header-row-title span { white-space: normal; line-height: 1.5; }
+    }
+
+    @media (max-width: 400px) {
+      :root { --header-logo-h-m: 32px; }
+      .logo-wrap img, .logo-wrap.logo-center img { height: 32px; max-width: 80px; }
+      .header-row1 { min-height: 62px; }
+    }

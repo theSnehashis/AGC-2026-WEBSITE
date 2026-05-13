@@ -1,0 +1,364 @@
+:root {
+    --bgc-maroon: #3d0c11;
+    --bgc-maroon-dark: #2a0809;
+    --bgc-maroon-mid: #56111a;
+    --bgc-orange: #ff6743;
+    --bgc-orange-dark: #eb5731;
+    --bgc-cream: #f8f2ec;
+    --bgc-surface: #fffaf6;
+    --bgc-border: #ead8cb;
+    --text-main: #161616;
+    --text-soft: #5f5753;
+    --shadow-soft: 0 20px 45px rgba(42, 8, 9, 0.14);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --container: 1240px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.container {
+    width: min(100% - 32px, var(--container));
+    margin: 0 auto;
+}
+
+.banner-page { padding: 0; }
+
+.hero-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 34px 34px;
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ── SWIPER ─────────────────────────────────────────────── */
+.hero-swiper {
+    width: 100%;
+    height: 55vh;
+    min-height: 450px;
+    max-height: 650px;
+    background: #fff;
+}
+
+.hero-swiper .swiper-slide {
+    position: relative;
+    isolation: isolate;
+    --adaptive-overlay-opacity: 0.50;
+}
+
+.hero-swiper .swiper-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(30,7,8,calc(var(--adaptive-overlay-opacity) + 0.22)) 0%,
+            rgba(30,7,8,calc(var(--adaptive-overlay-opacity) + 0.06)) 34%,
+            rgba(30,7,8,var(--adaptive-overlay-opacity)) 62%,
+            rgba(30,7,8,calc(var(--adaptive-overlay-opacity) - 0.16)) 100%),
+        linear-gradient(180deg,
+            rgba(30,7,8,0.06) 0%,
+            rgba(30,7,8,calc(var(--adaptive-overlay-opacity) + 0.06)) 100%);
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Full image — no side crop */
+.hero-swiper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+    background: #fff;
+}
+
+/* ── OVERLAY (hidden by default everywhere) ─────────────── */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.hero-content {
+    width: min(100% - 44px, 1180px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.62fr);
+    gap: 24px;
+    align-items: end;
+    padding: 30px 0;
+}
+
+.hero-copy,
+.hero-info-card {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    pointer-events: none;
+    transition:
+        opacity 0.4s ease-in-out,
+        transform 0.4s ease-in-out,
+        box-shadow 0.4s ease-in-out,
+        background 0.4s ease-in-out;
+}
+
+.hero-copy {
+    position: relative;
+    max-width: 760px;
+    padding: 24px 24px 28px;
+    border-radius: 30px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(61,12,17,0.72) 0%, rgba(42,8,9,0.56) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 22px 44px rgba(18,4,6,0.22);
+    transform-origin: left bottom;
+}
+
+.hero-copy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+.hero-info-card {
+    align-self: end;
+    background: rgba(255,248,243,0.95);
+    color: var(--bgc-maroon);
+    border-radius: 28px 28px 28px 0;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 18px 36px rgba(29,9,11,0.2);
+    transform-origin: right bottom;
+}
+
+/* ── DESKTOP ONLY: hover reveals overlay ────────────────── */
+@media (hover: hover) and (pointer: fine) {
+
+    .hero-overlay { pointer-events: auto; }
+
+    .hero-card:hover .hero-copy,
+    .hero-card:focus-within .hero-copy,
+    .hero-card:hover .hero-info-card,
+    .hero-card:focus-within .hero-info-card {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    .hero-card:hover .hero-copy,
+    .hero-card:focus-within .hero-copy {
+        box-shadow: 0 28px 52px rgba(18,4,6,0.3);
+        background: linear-gradient(135deg, rgba(61,12,17,0.82) 0%, rgba(42,8,9,0.68) 100%);
+    }
+
+    .hero-card:hover .hero-swiper .swiper-slide::before,
+    .hero-card:focus-within .hero-swiper .swiper-slide::before {
+        opacity: 1;
+    }
+}
+
+/* ── TEXT STYLES ─────────────────────────────────────────── */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+}
+
+.hero-copy h1 {
+    margin: 0 0 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 0.94;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.hero-copy p {
+    margin: 0;
+    max-width: 680px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.86);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.28);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.hero-btn:hover { transform: translateY(-2px); }
+.hero-btn.primary { background: var(--bgc-orange); color: #fff; }
+.hero-btn.secondary {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.22);
+    backdrop-filter: blur(6px);
+}
+
+.hero-info-card h2 {
+    margin: 0 0 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.hero-info-card p {
+    margin: 0 0 14px;
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.hero-metrics article {
+    padding-left: 14px;
+    border-left: 1px solid rgba(61,12,17,0.22);
+}
+
+.hero-metrics strong {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--bgc-orange);
+}
+
+.hero-metrics span {
+    display: block;
+    margin-top: 6px;
+    color: var(--bgc-maroon);
+    font-size: 0.95rem;
+}
+
+/* ── SWIPER CONTROLS ────────────────────────────────────── */
+.hero-swiper .swiper-pagination { bottom: 24px !important; }
+
+.hero-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.42);
+    opacity: 1;
+}
+
+.hero-swiper .swiper-pagination-bullet-active { background: var(--bgc-orange); }
+
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next {
+    width: 54px;
+    height: 54px;
+    color: #fff;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+}
+
+.hero-swiper .swiper-button-prev::after,
+.hero-swiper .swiper-button-next::after {
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+/* ── 1080px ─────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-info-card { max-width: 520px; }
+}
+
+/* ── 860px ──────────────────────────────────────────────── */
+@media (max-width: 860px) {
+    .hero-swiper { height: auto; min-height: 620px; }
+    .hero-content { padding: 68px 0 88px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE ≤ 640px
+   — Plain swipeable banner, no overlay, no popup, no hint
+   — 16:9 rectangle, full image visible, swipe to navigate
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+    .container { width: 100%; }
+
+    .hero-card {
+        border-radius: 0 0 16px 16px;
+        overflow: hidden;
+    }
+
+    /* 16:9 rectangle — full image, no crop */
+    .hero-swiper {
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+        aspect-ratio: 16 / 9;
+    }
+
+    .hero-swiper img {
+        object-fit: contain;
+        object-position: center center;
+        background: #fff;
+    }
+
+    /* Hide overlay entirely on mobile — no popup */
+    .hero-overlay { display: none; }
+
+    /* Hide arrows — swipe handles navigation */
+    .hero-swiper .swiper-button-prev,
+    .hero-swiper .swiper-button-next {
+        display: none !important;
+    }
+
+    /* Smaller pagination dots */
+    .hero-swiper .swiper-pagination { bottom: 8px !important; }
+    .hero-swiper .swiper-pagination-bullet { width: 7px; height: 7px; }
+}
+
+/* ── < 380px ────────────────────────────────────────────── */
+@media (max-width: 380px) {
+    .hero-swiper .swiper-pagination-bullet { width: 6px; height: 6px; }
+}

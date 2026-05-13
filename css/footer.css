@@ -1,0 +1,153 @@
+    /* ═══════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════ */
+    :root {
+      --maroon:      #3D0C11;
+      --maroon-dark: #2A0809;
+      --maroon-mid:  #4e1016;
+      --orange:      #E8572A;
+      --orange-h:    #ff6a3a;
+      --cream:       #F5EDE3;
+      --white:       #ffffff;
+      --text:        #1a1a1a;
+    }
+
+    /* ═══════════════════════════════════════
+       RESET / BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .site-footer { background: var(--maroon); color: rgba(255,255,255,.75); }
+
+    /* "Contact Us" heading bar */
+    .footer-contact-bar {
+      background: var(--maroon-dark);
+      padding: 20px clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .footer-contact-bar h2 {
+      font-size: clamp(18px, 3vw, 22px);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Conference Contacts */
+    .footer-contacts-section {
+      padding: clamp(32px, 5vw, 54px) clamp(20px, 6vw, 80px) clamp(32px, 5vw, 48px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-section-title {
+      text-align: center;
+      font-size: clamp(16px, 2.5vw, 20px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+    .footer-section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--orange);
+      margin: 10px auto 0;
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(18px, 3vw, 28px) clamp(32px, 8vw, 100px);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-person .cp-name {
+      font-size: clamp(13px, 1.5vw, 14.5px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    .contact-person .cp-detail {
+      font-size: clamp(12px, 1.3vw, 13px);
+      color: rgba(255,255,255,.58);
+      line-height: 1.75;
+    }
+    .contact-person .cp-detail a {
+      color: var(--orange);
+      transition: opacity .17s;
+    }
+    .contact-person .cp-detail a:hover { opacity: .75; }
+
+    /* ASI Kolkata Chapter */
+    .footer-asi-section {
+      padding: clamp(28px, 4vw, 44px) clamp(20px, 6vw, 80px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      text-align: center;
+    }
+    .asi-address-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 8px;
+    }
+    .asi-address-text {
+      font-size: clamp(12.5px, 1.5vw, 13.5px);
+      color: rgba(255,255,255,.60);
+      line-height: 1.8;
+    }
+    .asi-address-text a { color: var(--orange); transition: opacity .17s; }
+    .asi-address-text a:hover { opacity: .75; }
+
+    /* Footer bottom copyright */
+    .footer-bottom {
+  background: #ffffff;          /* ← changed from var(--maroon-dark) to white */
+  padding: clamp(12px, 2vw, 18px) clamp(16px, 4vw, 48px);
+}
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: clamp(12px, 1.4vw, 13.5px);
+  font-weight: 600;
+  color: #1a1a1a;               /* ← changed from rgba(255,255,255,.55) to dark */
+}
+
+    .footer-bottom-inner img {
+      height: clamp(36px, 5vw, 48px);
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — Collapse nav (≤ 860px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 860px) {
+      /* Footer tweaks */
+      .footer-contacts-section,
+      .footer-asi-section { padding-left: clamp(16px, 4vw, 32px); padding-right: clamp(16px, 4vw, 32px); }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — Mobile (≤ 600px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      /* Single column contacts */
+      .contacts-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      /* Hide the phantom empty slot */
+      .contact-phantom { display: none; }
+
+      .footer-bottom-inner { flex-direction: row; gap: 8px; justify-content: center; }
+    }
