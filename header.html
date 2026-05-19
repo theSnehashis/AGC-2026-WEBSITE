@@ -26,7 +26,7 @@
       <div class="logo-divider"></div>
  
       <div class="logo-wrap logo-center">
-        <a href="#home"><img src="/media/AGC2026-removebg-preview (1).jpg" alt="Analytics Global Conference 2026" /></a>
+        <a href="#home"><img src="/media/AGC2025-removebg-preview.png" alt="Analytics Global Conference 2025" /></a>
       </div>
  
       <div class="logo-divider"></div>
@@ -54,7 +54,17 @@
   <div class="header-row2" id="headerNav">
     <ul class="nav-list" id="navList">
  
-      <li><a href="/index.html" class="active">HOME</a></li>
+      <li class="has-dropdown">
+        <!-- FIX #3: arrow controlled purely by CSS, no hardcoded character -->
+        <a href="/index.html">HOME <span class="cv"></span></a>
+        <ul class="nav-dropdown">
+          <li><a href="#home">AGC 2026</a></li>
+          <li><a href="#home">AGC 2025</a></li>
+          <li><a href="#home">AGC 2024</a></li>
+          <li><a href="#home">AGC 2023</a></li>
+        </ul>
+      </li>
+
       <li><a href="event.html">EVENTS</a></li>
       <li><a href="schedule.html">SCHEDULE</a></li>
       <li><a href="#submissions">SUBMISSIONS</a></li>
@@ -65,6 +75,7 @@
         <!-- FIX #3: arrow controlled purely by CSS, no hardcoded character -->
         <a href="#">GALLERY <span class="cv"></span></a>
         <ul class="nav-dropdown">
+          <li><a href="#gallery">AGC 2026</a></li>
           <li><a href="#gallery">AGC 2025</a></li>
           <li><a href="#gallery">AGC 2024</a></li>
           <li><a href="#gallery">AGC 2023</a></li>

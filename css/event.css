@@ -1,0 +1,367 @@
+/* CSS: Global theme inspired by Bhawanipur page body styling */
+:root {
+    --bgc-maroon: #3d0c11;
+    --bgc-maroon-dark: #2a0809;
+    --bgc-maroon-mid: #56111a;
+    --bgc-orange: #ff6743;
+    --bgc-orange-dark: #eb5731;
+    --bgc-cream: #f8f2ec;
+    --bgc-surface: #fffaf6;
+    --bgc-border: #ead8cb;
+    --text-main: #161616;
+    --text-soft: #5f5753;
+    --shadow-soft: 0 20px 45px rgba(42, 8, 9, 0.14);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --container: 1240px;
+}
+
+*,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top left, rgba(255, 103, 67, 0.08), transparent 24%),
+        linear-gradient(180deg, #fff 0%, #fffaf6 100%);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+.container {
+    width: min(100% - 32px, var(--container));
+    margin: 0 auto;
+}
+
+
+/* CSS: Content sections and spacing cleanup */
+.section-block {
+    padding: 72px 0;
+}
+
+.section-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.72fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.section-panel {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--bgc-border);
+    border-radius: var(--radius-lg);
+    padding: 34px;
+    box-shadow: var(--shadow-soft);
+}
+
+.section-kicker {
+    display: inline-block;
+    color: var(--bgc-orange-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    color: var(--bgc-maroon);
+    text-transform: uppercase;
+    line-height: 0.96;
+    letter-spacing: 0.02em;
+    font-size: clamp(2.8rem, 5.6vw, 5rem);
+    margin-bottom: 22px;
+}
+
+.section-panel p {
+    color: var(--text-soft);
+    line-height: 1.85;
+    font-size: 1rem;
+}
+
+.conference-highlights {
+    display: grid;
+    gap: 16px;
+}
+
+.conference-highlights article {
+    background: linear-gradient(180deg, #fff 0%, #fff7f1 100%);
+    border: 1px solid var(--bgc-border);
+    border-radius: var(--radius-md);
+    padding: 22px 22px 20px;
+}
+
+.conference-highlights h3 {
+    color: var(--bgc-maroon);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 1.45rem;
+    margin-bottom: 8px;
+}
+
+.conference-highlights p {
+    color: var(--text-soft);
+    line-height: 1.7;
+    font-size: 0.96rem;
+}
+
+/* CSS: Preserve speaker area while improving surrounding presentation */
+.new-speakers-section {
+    padding: 40px 15px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+.new-speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.speaker-flip-card {
+    background-color: transparent;
+    width: 260px;
+    height: 260px;
+    perspective: 1000px;
+    display: none; /* hidden by default, JS will reveal */
+}
+.speaker-flip-card.visible {
+    display: block;
+}
+.speaker-flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.speaker-flip-card:hover .speaker-flip-card-inner {
+    transform: rotateY(180deg);
+}
+.speaker-flip-card-front, .speaker-flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    top: 0; left: 0;
+}
+.speaker-flip-card-front {
+    background-color: #fff;
+}
+.speaker-flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+.speaker-flip-card-back {
+    background-color: #49111c; /* Maroon theme color */
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.speaker-flip-card-back h3 {
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    color: #ffffff;
+    font-weight: 700;
+}
+.speaker-flip-card-back p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #ff6854; /* Coral theme color */
+}
+.custom-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.custom-btn {
+    display: flex;
+    align-items: stretch;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    transition: transform 0.2s;
+    outline: none;
+    text-decoration: none;
+}
+.custom-btn:hover {
+    transform: translateY(-3px);
+}
+.custom-btn-text {
+    background-color: #ff6854; /* Coral background */
+    color: white;
+    font-weight: 700;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+.custom-btn-icon {
+    background-color: #49111c; /* Maroon background */
+    color: white;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+@media (max-width: 600px) {
+    .speaker-flip-card {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+    }
+}
+
+/* CSS: Key attractions redesign */
+.attractions-shell {
+    padding: 42px 0 72px;
+}
+
+.key-attraction {
+    width: min(100% - 32px, var(--container));
+    margin: 0 auto;
+    padding: 40px 0 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-header h1 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--bgc-maroon);
+    text-transform: uppercase;
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.attraction-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.attraction-card {
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid var(--bgc-border);
+    border-radius: 22px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow-soft);
+}
+
+.attraction-card h2 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--bgc-maroon);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 1.55rem;
+    margin-bottom: 16px;
+}
+
+.attraction-card ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.attraction-card li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+.attraction-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bgc-orange);
+}
+
+
+/* CSS: Responsive behavior */
+@media (max-width: 1080px) {
+
+    .section-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .attraction-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .section-panel p {
+        font-size: 0.96rem;
+    }
+
+    .section-block,
+    .speakers-shell {
+        padding-top: 56px;
+    }
+
+    .section-panel {
+        padding: 26px 22px;
+    }
+
+    .attraction-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .speaker-flip-card {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+    }
+}

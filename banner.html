@@ -11,13 +11,21 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/media/favicon.png">
-    <link rel="stylesheet" href="/css/banner.css">
+    <link rel="stylesheet" href="/css/banner.css" />
+
 </head>
 <body>
     <main class="banner-page">
         <section class="hero-shell" id="home">
             <div class="container">
-                <div class="hero-card">
+                <div class="hero-card" id="heroCard">
+
+                    <div class="hero-progress" id="heroProgress"></div>
+
+                    <button class="hero-hint" id="heroHint" aria-label="View conference details">
+                        View Details <i class="fa-solid fa-eye"></i>
+                    </button>
+
                     <div class="swiper hero-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="/media/slider_image_1.png" alt="Conference highlight image one"></div>
@@ -27,12 +35,13 @@
                             <div class="swiper-slide"><img src="/media/slider_image_5.png" alt="Conference highlight image five"></div>
                         </div>
 
-                        <div class="hero-overlay">
+                        <!-- Desktop overlay (hidden on mobile via CSS) -->
+                        <div class="hero-overlay" id="heroOverlay">
                             <div class="hero-content">
                                 <div class="hero-copy">
                                     <span class="hero-eyebrow">Events Page 2026</span>
                                     <h1>Shape Smarter Futures With AGC 2026</h1>
-                                    <p>Experience keynote sessions, data-driven conversations, student activities, and industry-academia collaboration in a sharper, more professional event showcase inspired by the Bhawanipur Global Campus visual language.</p>
+                                    <p>Experience keynote sessions, data-driven conversations, student activities, and industry-academia collaboration in a sharper, more professional event showcase.</p>
                                     <div class="hero-actions">
                                         <a href="/register.html" class="hero-btn primary">Register Now <i class="fa-solid fa-arrow-right"></i></a>
                                         <a href="#key-attractions" class="hero-btn secondary">Explore Events <i class="fa-solid fa-arrow-right"></i></a>
@@ -68,10 +77,76 @@
                         <div class="swiper-button-next" aria-label="Next slide"></div>
                         <div class="swiper-pagination"></div>
                     </div>
+
+                    <!-- Mobile CTA bar (shown only on mobile) -->
+                    <div class="mobile-cta">
+                        <div>
+                            <div class="mobile-cta-title">AGC 2026</div>
+                            <div class="mobile-cta-sub">Analytics Global Conference</div>
+                        </div>
+                        <button class="mobile-cta-btn" id="mobileDetailsBtn" aria-label="View conference details">
+                            View Details <i class="fa-solid fa-circle-info"></i>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Mobile Modal Popup -->
+    <div class="mobile-modal-backdrop" id="mobileModal" role="dialog" aria-modal="true" aria-label="Conference Details">
+        <div class="mobile-modal-sheet" id="mobileModalSheet">
+            <div class="modal-handle" aria-hidden="true"></div>
+
+            <div class="modal-header">
+                <span class="modal-header-tag">
+                    <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    Events Page 2026
+                </span>
+                <button class="modal-close-btn" id="mobileModalClose" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <h2>Shape Smarter Futures With AGC 2026</h2>
+                <p>Experience keynote sessions, data-driven conversations, student activities, and industry-academia collaboration in a sharper, more professional event showcase.</p>
+
+                <div class="modal-focus-card">
+                    <h3>Conference Focus</h3>
+                    <p>AGC 2026 brings together scholars, educators, innovators, and students around analytics, AI, sustainability, machine learning, and real-world decision systems.</p>
+                    <div class="modal-metrics">
+                        <article>
+                            <strong>20K+</strong>
+                            <span>Academic community reach</span>
+                        </article>
+                        <article>
+                            <strong>90+</strong>
+                            <span>Years of educational legacy</span>
+                        </article>
+                        <article>
+                            <strong>4</strong>
+                            <span>Core panel tracks</span>
+                        </article>
+                        <article>
+                            <strong>2</strong>
+                            <span>Student event formats</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="/register.html" class="modal-btn primary">
+                        Register Now <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#key-attractions" class="modal-btn secondary" id="mobileExploreBtn">
+                        Explore Events <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/js/banner.js"></script>
 </body>

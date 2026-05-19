@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join us at the AGC 2026 conference to learn about analytics, artificial intelligence, big data, machine learning and data science.">
+    <meta name="keywords" content="AGC 2026, Analytics, ASI, Big Data, Machine Learning, Data Science, predictive modelling, deep learning, natural language processing">
+    <title>ANALYTICS GLOBAL CONFERENCE 2026 | Events</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/event.css">
+</head>
+<body>
+    <!-- Header loaded dynamically via loadcomponent.js -->
+    <div id="header"></div>
+
+    <!-- Banner loaded dynamically via loadcomponent.js to match schedule.html -->
+    <div id="banner"></div>
+
+    <!-- HTML: Intro content to reduce empty space and improve hierarchy -->
+    <section class="section-block" id="about">
+        <div class="container section-intro">
+            <article class="section-panel">
+                <span class="section-kicker">About The Events Page</span>
+                <h2 class="section-title">About Analytics Global Conference 2026</h2>
+                <p>Analytics Global Conference 2026 is designed as a professional knowledge platform for emerging conversations in analytics, artificial intelligence, big data, machine learning, data science, and sustainability. This refreshed layout uses a stronger visual rhythm, tighter spacing, better section hierarchy, and a Bhawanipur-inspired maroon-and-coral body theme to make the page feel more premium and easier to browse.</p>
+            </article>
+
+            <div class="conference-highlights">
+                <article>
+                    <h3>Academic + Industry Blend</h3>
+                    <p>Keynotes, panels, and paper presentations are arranged to speak both to research depth and practical impact.</p>
+                </article>
+                <article>
+                    <h3>Cleaner Content Flow</h3>
+                    <p>Large blank areas have been tightened with stronger section containers, cards, and balanced spacing across desktop and mobile screens.</p>
+                </article>
+                <article>
+                    <h3>Responsive Event Experience</h3>
+                    <p>The page now adapts better across devices while keeping your speaker flip-card interaction untouched.</p>
+                </article>
+            </div>
+        </div>
+    </section> 
+    
+
+    <!-- HTML: Speaker section preserved with original flip-card logic -->
+    <section class="speakers-shell" id="speakers">
+        <div class="section-header">
+            <span class="section-kicker">Conference Voices</span>
+            <h1 id="programchairs">Speakers</h1>
+        </div>
+
+        <div class="new-speakers-section">
+            <div class="new-speakers-grid" id="newSpeakersGrid"></div>
+            <div class="custom-btn-wrapper" id="newShowMoreBtnWrapper">
+                <button id="newShowMoreBtn" class="custom-btn">
+                    <span class="custom-btn-text">SHOW MORE</span>
+                    <span class="custom-btn-icon">&#8594;</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="old-speakers-backup" style="display: none;">
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/sarvottamananda.png" alt="Swami Sarvottamananda">
+                        <div class="card-content">
+                            <h1>Swami Sarvottamananda</h1>
+                            <p>Vice Chancellor, RKMVERI &amp; Professor, Dept. of Computer Science</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Debasis.jpeg" alt="Debasis Sen">
+                        <div class="card-content">
+                            <h1>Mr. Debasis Sen</h1>
+                            <p>ex-IAS, Former Chairman of Smart City, Newtown</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/sanjay.png" alt="Sanjay Kumar Das">
+                        <div class="card-content">
+                            <h1>Mr. Sanjay Kumar Das</h1>
+                            <p>WBCS (Executive), Special Secretary, Department of Science and Technology and Bio-Technology &amp; State Information Security Officer, Government of West Bengal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/arnab.png" alt="Arnab Laha">
+                        <div class="card-content">
+                            <h1>Prof. Arnab Laha</h1>
+                            <p>Professor, IIM Ahmedabad &amp; RBI Chair Professor, Indian Statistical Institute (on deputation)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Biswanath.png" alt="Biswanath Ghosh">
+                        <div class="card-content">
+                            <h1>Mr. Biswanath Ghosh</h1>
+                            <p>ex-CIO, Mahindra and Mahindra</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/ganesh.jpg" alt="Ganesh Singh">
+                        <div class="card-content">
+                            <h1>Dr. Ganesh Singh</h1>
+                            <p>Professor &amp; Programme Director - New Age Courses, Centre for Management Education, All India Management Association</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Binoy.jpg" alt="Binoy Krishna Choudhury">
+                        <div class="card-content">
+                            <h1>Dr. Binoy Krishna Choudhury</h1>
+                            <p>Professor, Indian Institute of Social Welfare and Business Management</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Raj.jpg" alt="Raj Jain">
+                        <div class="card-content">
+                            <h1>Mr. Raj Jain</h1>
+                            <p>CEO &amp; Managing Director, RS Software Ltd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Tridibesh.jpeg" alt="Tridibesh Bandyopadhyay">
+                        <div class="card-content">
+                            <h1>Mr. Tridibesh Bandyopadhyay</h1>
+                            <p>Founder and CEO, InQube - Digitizing Farm-Food-Forestry Value Chain for a Net Zero World</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="../media/Deepankar Sinha.png" alt="Deepankar Sinha">
+                        <div class="card-content">
+                            <h1>Prof. Deepankar Sinha</h1>
+                            <p>Professor &amp; Head - Research Division, IIFT, Kolkata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="../media/Kamala.png" alt="Swami Kamalasthananda">
+                        <div class="card-content">
+                            <h1>Swami Kamalasthananda</h1>
+                            <p>Principal, Ramakrishna Mission Vivekananda Centenary College, Rahara, Kolkata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/nilanjan.png" alt="Nilanjan Ghosh">
+                        <div class="card-content">
+                            <h1>Dr. Nilanjan Ghosh</h1>
+                            <p>Vice President - ORF Kolkata and Development Studies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/madhura.jpg" alt="Madhura Mitra">
+                        <div class="card-content">
+                            <h1>Ms. Madhura Mitra</h1>
+                            <p>Executive Director, Sustainability and Climate Change, PwC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/ajeyo.jpg" alt="Ajeyo Bandopadhyay">
+                        <div class="card-content">
+                            <h1>Mr Ajeyo Bandopadhyay</h1>
+                            <p>South Asia Lead (Advisory), Decarbonisation, Circularity, Energy, Smart Manufacturing, International Finance Corporation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Saptarshi.jpg" alt="Saptarshi Ghosh">
+                        <div class="card-content">
+                            <h1>Prof. Saptarshi Ghosh</h1>
+                            <p>Associate Professor, Department of Computer Science and Engineering, Indian Institute of Technology Kharagpur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Surojit.jpg" alt="Surojit Bose">
+                        <div class="card-content">
+                            <h1>Mr. Surojit Bose</h1>
+                            <p>Advisor, Intueri Consulting LLP.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Vivek.jpg" alt="Vivek Iyer">
+                        <div class="card-content">
+                            <h1>Mr. Vivek Iyer</h1>
+                            <p>Managing Director, D2L India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Jyotsna.jpg" alt="Jyotsna Kumar Mandal">
+                        <div class="card-content">
+                            <h1>Dr. Jyotsna Kumar Mandal</h1>
+                            <p>Professor, University of Kalyani</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Shyamal.jpg" alt="Shyamal Kumar Mandal">
+                        <div class="card-content">
+                            <h1>Prof. Shyamal Kumar Mandal</h1>
+                            <p>Professor, Indian Institute of Technology, Kharagpur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/madhumita.jpg" alt="Madhumita Roy">
+                        <div class="card-content">
+                            <h1>Prof. Madhumita Roy</h1>
+                            <p>Professor, Department of Architecture, Jadavpur University</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Dhrubajyoti.png" alt="Dhrubajyoti Chattopadhyay">
+                        <div class="card-content">
+                            <h1>Prof. Dhrubajyoti Chattopadhyay</h1>
+                            <p>Vice Chancellor Sister Nivedita University, Kolkata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/DebashisSaha.jpg" alt="Debashis Saha">
+                        <div class="card-content">
+                            <h1>Prof. Debashis Saha</h1>
+                            <p>Professor, IIM, Kolkata</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="../media/speakers/Indranil-mitra.png" alt="Indranil Mitra">
+                        <div class="card-content">
+                            <h1>Dr. Indranil Mitra</h1>
+                            <p>Partner - AI and Advanced Analytics - PwC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/Somprakash.png" alt="Somprakash Bandopadhyay">
+                        <div class="card-content">
+                            <h1>Prof. Somprakash Bandopadhyay</h1>
+                            <p>Director &amp; Personal Growth Consultant: Career and Life Design Counselling, Former Professor at IIM Calcutta, IIT Kharagpur &amp; IIT Bombay</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="../media/speakers/IPS._Dhrubajyoti_De.png" alt="Dhrubajyoti De">
+                        <div class="card-content">
+                            <h1>IPS. Dhrubajyoti De</h1>
+                            <p>IPS, Additional CP (SB), Kolkata Police</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="../media/speakers/Subhamoy.png" alt="Subhamoy Chakraborti">
+                        <div class="card-content">
+                            <h1>Mr. Subhamoy Chakraborti</h1>
+                            <p>Industry Chair, IEEE Kolkata Section CTO, ABP Pvt Ltd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="./media/avik.jpg" alt="Avik Bhattacharya">
+                        <div class="card-content">
+                            <h1>Prof. Avik Bhattacharya</h1>
+                            <p>Associate Professor, Department of Electrical Engineering at IIT Roorkee</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="card" style="display: block;">
+                        <img class="card-img" src="../media/Sabarna.jpeg" alt="Sabarna Roy">
+                        <div class="card-content">
+                            <h1>Dr. Sabarna Roy</h1>
+                            <p>Head, Research &amp; Development, Kejriwal Castings Limited</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HTML: Key attractions redesign with better typography, cards and spacing -->
+    <section class="attractions-shell" id="key-attractions">
+        <div class="key-attraction">
+            <div class="section-header">
+                <span class="section-kicker">Featured Experiences</span>
+                <h1>Key Attractions</h1>
+            </div>
+            <div class="attraction-grid">
+                <article class="attraction-card">
+                    <h2>Keynotes</h2>
+                    <ul>
+                        <li>Address by eminent scholars and industry experts</li>
+                    </ul>
+                </article>
+
+                <article class="attraction-card">
+                    <h2>Panel Discussions</h2>
+                    <ul>
+                        <li>Sustainability and Smart Systems: Promises and Pitfalls</li>
+                        <li>Smart Connectivity for Smarter Decisions - Industry 5.0</li>
+                    </ul>
+                </article>
+
+                <article class="attraction-card">
+                    <h2>Research Forum</h2>
+                    <ul>
+                        <li>Carbon Efficiency Achievement to Meet CBAM Requirements</li>
+                        <li>Data-Driven Real-Time Decisions for Sustainable Education</li>
+                        <li>Presentation of selected research papers</li>
+                    </ul>
+                </article>
+
+                <article class="attraction-card">
+                    <h2>Student Events</h2>
+                    <ul>
+                        <li>Smart Quiz</li>
+                        <li>Smart D-bate</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer loaded dynamically via loadcomponent.js -->
+    <div id="footer"></div>
+
+    <div id="galleryAnchor" hidden></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="/js/loadcomponent.js"></script>
+    <script src="/js/event.js"></script>
+    <
+</body>
+</html>
