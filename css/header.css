@@ -224,6 +224,10 @@
       background: var(--maroon-mid);
       color: var(--orange);
     }
+
+    .dropdown-toggle {
+  cursor: pointer;
+}
  
     /* ══════════════════════════════════════
        RESPONSIVE — Tablet (≤ 1024px)

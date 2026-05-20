@@ -1,0 +1,513 @@
+:root {
+    --container: 1240px;
+}
+/* ============================= */
+/* MAIN LAYOUT (STACKED) */
+/* ============================= */
+
+.research-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    margin: 30px;
+    padding: 20px;
+}
+
+/* ============================= */
+/* LEFT SECTION */
+/* ============================= */
+
+.research-left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* THEME + LOGO ALIGNMENT */
+.theme-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Theme section with logo below on left */
+.theme-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    width: 100%;
+    padding: 40px ;
+}
+
+/* KEEP YOUR ORIGINAL THEME STYLE */
+.theme-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3D0C11;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #E8572A;
+}
+
+/* LOGO (NOW UNDER RESEARCH TRACK ON LEFT SIDE) */
+.research-logo-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: normal;
+    margin-bottom: 40px;
+    gap: 0.5in;
+    flex-shrink: 0;
+}
+
+.research-logo {
+    width: 160px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(61, 12, 17, 0.1);
+    border-bottom: 3px solid #E8572A;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.research-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
+    display: block;
+}
+
+/* DESCRIPTION BOX (UNCHANGED STYLE, FIXED HEIGHT ISSUE) */
+.description-container {
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 16px 48px rgba(61, 12, 17, 0.14),
+                0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(232, 87, 42, 0.12);
+    position: relative;
+    overflow: hidden;
+    margin: 40px 30px 40px 30px;
+
+    /* FIX */
+    height: auto;
+}
+
+/* ============================= */
+/* RIGHT SECTION (NOW STACKED) */
+/* ============================= */
+
+.research-right {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+}
+
+/* TITLE */
+.research-title {
+   font-family: 'Oswald', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3D0C11;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #E8572A;
+}
+
+/* REMOVE GRID → STACK */
+.research-right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================= */
+/* INFO CARDS (UNCHANGED DESIGN) */
+/* ============================= */
+
+.info-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(61, 12, 17, 0.12), 
+                0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(232, 87, 42, 0.15);
+    position: relative;
+    width: 100%;
+  
+}
+
+.info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #E8572A 0%, #ff6a3a 100%);
+}
+
+.info-card:hover {
+    box-shadow: 0 20px 50px rgba(61, 12, 17, 0.18), 
+                0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+/* ============================= */
+/* KEEP YOUR ORIGINAL CONTENT STYLES */
+/* ============================= */
+
+/* (No changes below — your typography, lists, etc. remain SAME) */
+
+.card-header {
+    background: linear-gradient(135deg, #3D0C11 0%, #2A0809 100%);
+    padding: 16px 20px;
+    border-bottom: 2px solid rgba(232, 87, 42, 0.3);
+}
+
+.card-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #E8572A;
+    margin: 0;
+}
+
+.card-content {
+    padding: 20px;
+}
+/* Flip Cards Section */
+.flip-cards-section{
+ display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 260px;
+  height: 260px;
+  perspective: 1000px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.flip-card-back {
+  background-color: #3D0C11;
+  color: #fdfbfb;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+
+/* Submission Instructions */
+.submission-instructions {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 16px 48px rgba(61, 12, 17, 0.14),
+                0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(232, 87, 42, 0.12);
+    line-height: 1.8;
+    color: #1a1a1a;
+}
+
+.submission-instructions p {
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+}
+
+.highlight {
+    font-weight: 700;
+    color: #3D0C11;
+    font-size: 1rem;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(61, 12, 17, 0.05) 0%, rgba(232, 87, 42, 0.05) 100%);
+    border-left: 4px solid #E8572A;
+    border-radius: 8px;
+}
+
+.submit-highlight {
+    background: rgba(232, 87, 42, 0.12);
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #E8572A;
+    border-left: 4px solid #E8572A;
+}
+
+.submission-instructions h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #3D0C11;
+    margin: 30px 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(232, 87, 42, 0.3);
+}
+
+.steps {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 18px;
+    background: rgba(232, 87, 42, 0.05);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.steps li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    font-size: 0.92rem;
+    color: #555;
+}
+
+.steps li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #E8572A;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.submission-instructions a {
+    color: #E8572A;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 2px solid #E8572A;
+    transition: all 0.3s ease;
+}
+
+.submission-instructions a:hover {
+    color: #d94415;
+    border-bottom-color: #d94415;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(232, 87, 42, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .research-content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .research-title {
+        font-size: 2.2rem;
+    }
+
+    .description-container {
+        aspect-ratio: auto;
+        min-height: 450px;
+    }
+
+    .research-right-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .research-logo-wrapper {
+        justify-content: flex-start;
+        gap: 1.5rem;
+    }
+
+    .flip-cards-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .research-track {
+        padding: 60px 0;
+    }
+
+    .research-container {
+        padding: 0 16px;
+    }
+
+    .research-title {
+        font-size: 1.8rem;
+    }
+
+    .research-right-content {
+        grid-template-columns: 140px 1fr;
+        gap: 20px;
+    }
+
+    .research-logo-wrapper {
+        gap: 1rem;
+    }
+
+    .research-logo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .logo-overlay {
+        font-size: 1.1rem;
+        height: 45px;
+    }
+
+    .description-container {
+        aspect-ratio: auto;
+        min-height: 400px;
+        padding: 28px;
+    }
+
+    .flip-cards-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .flip-card {
+        max-width: 100%;
+        height: 280px;
+    }
+
+    .submission-instructions {
+        padding: 30px;
+    }
+
+    .info-card {
+        margin: 0;
+    }
+
+    .intro-lead {
+        font-size: 0.95rem;
+    }
+
+    .card-header h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .research-track {
+        padding: 40px 0;
+    }
+
+    .research-container {
+        padding: 0 12px;
+    }
+
+    .research-title {
+        font-size: 1.4rem;
+    }
+
+    .research-right-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .research-logo {
+        width: 120px;
+        height: 120px;
+        align-self: center;
+    }
+
+    .logo-overlay {
+        font-size: 0.95rem;
+        height: 40px;
+    }
+
+    .theme-label {
+        font-size: 1rem;
+    }
+
+    .description-container {
+        aspect-ratio: auto;
+        min-height: 350px;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .intro-lead {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+        padding-bottom: 14px;
+    }
+
+    .theme-box {
+        padding: 14px;
+        margin-bottom: 16px;
+    }
+
+    .card-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .flip-card-back h3 {
+        font-size: 1.1rem;
+    }
+
+    .submission-instructions {
+        padding: 20px;
+        border-radius: 12px;
+    }
+}

@@ -82,3 +82,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+// JS: Fix banner loading glitch
+document.addEventListener('DOMContentLoaded', () => {
+    const bannerObserver = new MutationObserver(() => {
+        const bannerImgs = document.querySelectorAll('#banner img');
+        bannerImgs.forEach(bannerImg => {
+            if (!bannerImg.dataset.loadHandled) {
+                bannerImg.dataset.loadHandled = 'true';
+                if (bannerImg.complete) {
+                    bannerImg.classList.add('loaded');
+                } else {
+                    bannerImg.addEventListener('load', () => bannerImg.classList.add('loaded'));
+                }
+            }
+        });
+    });
+    const bannerContainer = document.getElementById('banner') || document.body;
+    bannerObserver.observe(bannerContainer, { childList: true, subtree: true });
+});
