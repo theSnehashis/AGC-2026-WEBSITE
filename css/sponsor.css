@@ -1,243 +1,540 @@
+/* =====================================================
+   DESIGN TOKENS — shared across schedule, submission,
+   and sponsors pages
+   ===================================================== */
 :root {
-    --container: 1240px;
-}
-.sponsor-left {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.sponsor-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #3D0C11;
-    margin: 40px ;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #E8572A;
-}
-/* Flip Card Gallery */
-body {
-  font-family: 'Oswald', sans-serif;
-  background: #3D0C11;
-  margin: 0;
-  padding: 0;
+    --bgc-maroon:      #3d0c11;
+    --bgc-maroon-dark: #2a0809;
+    --bgc-maroon-mid:  #56111a;
+    --bgc-orange:      #ff6743;
+    --bgc-orange-dark: #eb5731;
+    --bgc-cream:       #f8f2ec;
+    --bgc-surface:     #fffaf6;
+    --bgc-border:      #ead8cb;
+    --text-main:       #161616;
+    --text-soft:       #5f5753;
+    --radius-lg:       28px;
+    --radius-md:       18px;
+    --radius-sm:       12px;
+    --container:       1240px;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  justify-items: center;
-}
-
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  max-width: 240px;
-  height: 260px;
-  perspective: 1000px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner,
-.flip-card.is-flipped .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.flip-card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down;
-}
-
-.flip-card-back {
-  background-color: #3D0C11;
-  color: #fdfbfb;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-/* table Section */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
-*{
+/* =====================================================
+   BASE RESET
+   ===================================================== */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-.sponsor-section{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+html {
+    scroll-behavior: smooth;
 }
 
-@media (max-width: 768px) {
-  .card-container {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 0 16px;
-    justify-items: stretch;
-    max-width: 420px;
-    margin: 0 auto;
-  }
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at top left, rgba(255, 103, 67, 0.08), transparent 24%),
+        linear-gradient(180deg, #fff 0%, #fffaf6 100%);
+    overflow-x: hidden;
+}
 
-  .flip-card {
+img {
     max-width: 100%;
-    height: 300px;
-    border-radius: 25px;
-    padding: 20px;
-    overflow-x: auto;
-} 
+    display: block;
 }
 
-.sponsor-table{
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 12px;
-    text-align: center;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.sponsor-table thead th{
-    background: #3D0C11;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 10px 8px;
-    color: #f0efef;
+/* =====================================================
+   PAGE SHELL
+   ===================================================== */
+.sponsors-shell {
+    padding: 30px 0 100px;
 }
 
-.sponsor-table thead th:first-child{
-    background: #3D0C11;
-    border-top-left-radius: 12px;
+.container {
+    width: min(100% - 32px, var(--container));
+    margin: 0 auto;
 }
 
-.sponsor-table thead th:last-child{
-    border-top-right-radius: 12px;
-}
-
-.sponsor-table tbody td{
-    background: #3D0C11;
-    padding: 12px 10px;
-    font-size: 22px;
-    color: #f0efef;
-    transition: 0.3s ease;
-}
-
-.sponsor-table tbody td:first-child{
-    text-align: center;
-    width: 55%;
-    font-size: 26px;
-    font-weight: 400;
-    background: #E8572A;
-}
-
-.sponsor-table tbody tr:hover td{
-    transform: scale(1.01);
-    background: #4313186e;
-}
-
-.platinum{
-    color: #000;
-}
-
-.gold{
-    color: #000;
-}
-
-.silver{
-    color: #000;
-}
-
-.bronze{
-    color: #000;
-}
-
-/* Responsive */
-
-@media(max-width: 768px){
-
-    .table-container{
-        padding: 12px;
-    }
-
-    .sponsor-table thead th{
-        font-size: 16px;
-        padding: 10px 5px;
-    }
-
-    .sponsor-table tbody td{
-        font-size: 18px;
-        padding: 10px 5px;
-    }
-
-    .sponsor-table tbody td:first-child{
-        font-size: 18px;
-        width: 45%;
-    }
-}
-.submission-instructions {
-    background: white;
+/* =====================================================
+   SECTION HEADING
+   ===================================================== */
+.section-heading {
     font-family: 'Oswald', sans-serif;
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: 0 16px 48px rgba(61, 12, 17, 0.14),
-                0 6px 16px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(232, 87, 42, 0.12);
-    line-height: 1.8;
-    color: #1a1a1a;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--bgc-maroon);
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--bgc-orange);
+    display: inline-block;
+    margin-bottom: 32px;
 }
 
-.submission-instructions p {
-    margin-bottom: 18px;
-    font-size: 0.95rem;
-}
-.steps {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 18px;
-    background: rgba(232, 87, 42, 0.05);
-    padding: 16px;
-    border-radius: 8px;
+/* =====================================================
+   FLIP CARDS GRID
+   ===================================================== */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    justify-items: center;
+    margin-bottom: 56px;
 }
 
-.steps li {
-    padding: 10px 0 10px 28px;
+/* ── Single card ── */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    max-width: 220px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    /* prevent text selection on rapid taps */
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.flip-card-inner {
     position: relative;
-    font-size: 0.92rem;
-    color: #555;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.steps li::before {
-    content: "→";
+/* Hover only on pointer devices — touch uses .is-flipped via JS */
+@media (hover: hover) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* JS-driven flipped state (works on all devices) */
+.flip-card.is-flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* ── Shared face styles ── */
+.flip-card-front,
+.flip-card-back {
     position: absolute;
-    left: 0;
-    color: #E8572A;
-    font-weight: 800;
-    font-size: 1.2rem;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ── Front face ── */
+.flip-card-front {
+    background: #fff;
+    border: 1px solid var(--bgc-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.flip-card:hover .flip-card-front,
+.flip-card.is-flipped .flip-card-front {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 103, 67, 0.3);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+/* ── Back face ── */
+.flip-card-back {
+    background-color: var(--bgc-maroon);
+    color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 8px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(61, 12, 17, 0.25);
+}
+
+.flip-card-back h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+}
+
+.flip-card-back p {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.02em;
+}
+
+/* =====================================================
+   SPONSORSHIP TABLE
+   ===================================================== */
+.sponsor-section {
+    margin-bottom: 56px;
+}
+
+.sponsor-table-wrapper {
+    background: #fff;
+    border: 1px solid var(--bgc-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+    position: relative;
+}
+
+/* Orange accent bar */
+.sponsor-table-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--bgc-orange);
+    z-index: 1;
+}
+
+.sponsor-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ── Header row ── */
+.sponsor-table thead th {
+    background: var(--bgc-maroon-dark);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 16px 12px;
+    color: var(--bgc-orange);
+}
+
+.sponsor-table thead th:first-child {
+    text-align: left;
+    padding-left: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+}
+
+/* ── Body rows ── */
+.sponsor-table tbody tr {
+    border-bottom: 1px solid var(--bgc-border);
+    transition: background 0.2s ease;
+}
+
+.sponsor-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.sponsor-table tbody tr:hover {
+    background: var(--bgc-surface);
+}
+
+.sponsor-table tbody td {
+    padding: 14px 12px;
+    font-size: 0.92rem;
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.sponsor-table tbody td:first-child {
+    text-align: left;
+    padding-left: 24px;
+    font-weight: 600;
+    color: var(--bgc-maroon);
+    width: 45%;
+    font-size: 0.88rem;
+}
+
+/* Tier badge pills in header */
+.tier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tier-platinum { background: rgba(229, 228, 226, 0.18); color: #e0e0e0; }
+.tier-gold     { background: rgba(255, 215, 0, 0.15);   color: #ffd700; }
+.tier-silver   { background: rgba(192, 192, 192, 0.15); color: #c8c8c8; }
+.tier-bronze   { background: rgba(205, 127, 50, 0.15);  color: #cd9060; }
+
+/* Check / dash icons */
+.check {
+    color: var(--bgc-orange);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.empty-cell {
+    color: var(--text-soft);
+    opacity: 0.3;
+    font-size: 1rem;
+}
+
+/* =====================================================
+   OTHER OPTIONS CARD
+   ===================================================== */
+.other-options-card {
+    background: #fff;
+    border: 1px solid var(--bgc-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.other-options-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--bgc-orange);
+}
+
+/* Card header — matches submission + schedule card header */
+.card-header {
+    background: var(--bgc-maroon-dark);
+    padding: 14px 24px;
+}
+
+.card-header h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--bgc-orange);
+    margin: 0;
+}
+
+.card-content {
+    padding: 28px;
+}
+
+/* Option chips grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.option-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bgc-surface);
+    border: 1px solid var(--bgc-border);
+    border-radius: 99px;
+    padding: 9px 16px;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.option-chip i {
+    color: var(--bgc-orange);
+    font-size: 0.78rem;
+    flex-shrink: 0;
+}
+
+.option-chip:hover {
+    border-color: rgba(255, 103, 67, 0.4);
+    background: rgba(255, 103, 67, 0.04);
+}
+
+/* Contact banner */
+.contact-banner {
+    background: rgba(255, 103, 67, 0.06);
+    border-left: 4px solid var(--bgc-orange);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 14px 18px;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+.contact-banner a {
+    color: var(--bgc-orange-dark);
+    font-weight: 700;
+    border-bottom: 2px solid var(--bgc-orange-dark);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-banner a:hover {
+    color: var(--bgc-maroon);
+    border-bottom-color: var(--bgc-maroon);
+}
+
+/* =====================================================
+   RESPONSIVE BREAKPOINTS
+   ===================================================== */
+
+/* Large tablets / small desktops */
+@media (max-width: 1100px) {
+    .card-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 860px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+
+    .flip-card {
+        max-width: 100%;
+        height: 190px;
+    }
+
+    /* Disable hover-flip on touch — JS handles it */
+    .flip-card:hover .flip-card-inner {
+        transform: none;
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .sponsor-table thead th,
+    .sponsor-table tbody td {
+        font-size: 0.82rem;
+        padding: 10px 8px;
+    }
+
+    .sponsor-table tbody td:first-child {
+        padding-left: 14px;
+        font-size: 0.82rem;
+    }
+
+    .tier-badge {
+        font-size: 0.7rem;
+        padding: 3px 7px;
+    }
+
+    .options-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+}
+
+/* Mobile landscape / large phones */
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .flip-card {
+        height: 170px;
+    }
+
+    .flip-card-front {
+        padding: 10px;
+    }
+
+    .flip-card-back h3 {
+        font-size: 0.95rem;
+    }
+
+    .flip-card-back p {
+        font-size: 0.75rem;
+    }
+
+    .section-heading {
+        font-size: 1.4rem;
+    }
+
+    /* Scroll table horizontally on small screens */
+    .sponsor-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sponsor-table {
+        min-width: 420px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .options-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .option-chip {
+        font-size: 0.82rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .flip-card {
+        height: 150px;
+    }
+
+    .flip-card-back h3 {
+        font-size: 0.85rem;
+    }
+
+    .section-heading {
+        font-size: 1.2rem;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .option-chip {
+        font-size: 0.78rem;
+        padding: 7px 10px;
+    }
 }

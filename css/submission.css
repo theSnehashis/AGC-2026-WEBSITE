@@ -1,513 +1,662 @@
+/* =====================================================
+   DESIGN TOKENS — shared across schedule, submission,
+   and sponsors pages
+   ===================================================== */
 :root {
-    --container: 1240px;
-}
-/* ============================= */
-/* MAIN LAYOUT (STACKED) */
-/* ============================= */
-
-.research-content-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 60px;
-    margin: 30px;
-    padding: 20px;
-}
-
-/* ============================= */
-/* LEFT SECTION */
-/* ============================= */
-
-.research-left {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    --bgc-maroon:      #3d0c11;
+    --bgc-maroon-dark: #2a0809;
+    --bgc-maroon-mid:  #56111a;
+    --bgc-orange:      #ff6743;
+    --bgc-orange-dark: #eb5731;
+    --bgc-cream:       #f8f2ec;
+    --bgc-surface:     #fffaf6;
+    --bgc-border:      #ead8cb;
+    --text-main:       #161616;
+    --text-soft:       #5f5753;
+    --radius-lg:       28px;
+    --radius-md:       18px;
+    --radius-sm:       12px;
+    --container:       1240px;
 }
 
-/* THEME + LOGO ALIGNMENT */
-.theme-header {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-/* Theme section with logo below on left */
-.theme-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
-    width: 100%;
-    padding: 40px ;
-}
-
-/* KEEP YOUR ORIGINAL THEME STYLE */
-.theme-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.6rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #3D0C11;
+/* =====================================================
+   BASE RESET
+   ===================================================== */
+*, *::before, *::after {
     margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #E8572A;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* LOGO (NOW UNDER RESEARCH TRACK ON LEFT SIDE) */
-.research-logo-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: normal;
-    margin-bottom: 40px;
-    gap: 0.5in;
-    flex-shrink: 0;
+html {
+    scroll-behavior: smooth;
 }
 
-.research-logo {
-    width: 160px;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(61, 12, 17, 0.1);
-    border-bottom: 3px solid #E8572A;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at top left, rgba(255, 103, 67, 0.08), transparent 24%),
+        linear-gradient(180deg, #fff 0%, #fffaf6 100%);
+    overflow-x: hidden;
 }
 
-.research-logo img {
+img {
     max-width: 100%;
-    max-height: 100%;
-    object-fit: scale-down;
     display: block;
 }
 
-/* DESCRIPTION BOX (UNCHANGED STYLE, FIXED HEIGHT ISSUE) */
-.description-container {
-    background: white;
-    border-radius: 16px;
-    padding: 36px;
-    box-shadow: 0 16px 48px rgba(61, 12, 17, 0.14),
-                0 6px 16px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(232, 87, 42, 0.12);
-    position: relative;
-    overflow: hidden;
-    margin: 40px 30px 40px 30px;
-
-    /* FIX */
-    height: auto;
+a {
+    color: inherit;
 }
 
-/* ============================= */
-/* RIGHT SECTION (NOW STACKED) */
-/* ============================= */
-
-.research-right {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    width: 100%;
+/* =====================================================
+   PAGE SHELL
+   ===================================================== */
+.submission-shell {
+    padding: 30px 0 100px;
 }
 
-/* TITLE */
-.research-title {
-   font-family: 'Oswald', sans-serif;
-    font-size: 2.6rem;
-    font-weight: 900;
+.container {
+    width: min(100% - 32px, var(--container));
+    margin: 0 auto;
+}
+
+/* =====================================================
+   SECTION HEADING
+   ===================================================== */
+.theme-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #3D0C11;
-    margin: 0;
+    color: var(--bgc-maroon);
     padding-bottom: 10px;
-    border-bottom: 3px solid #E8572A;
+    border-bottom: 3px solid var(--bgc-orange);
+    display: inline-block;
+    margin-bottom: 24px;
 }
 
-/* REMOVE GRID → STACK */
-.research-right-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* =====================================================
+   MAIN CONTENT GRID
+   ===================================================== */
+.research-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 50px;
+    align-items: start;
 }
 
-/* ============================= */
-/* INFO CARDS (UNCHANGED DESIGN) */
-/* ============================= */
-
-.info-cards-wrapper {
+.research-left {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.info-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 12px 40px rgba(61, 12, 17, 0.12), 
-                0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(232, 87, 42, 0.15);
+/* =====================================================
+   DESCRIPTION / THEME CARD
+   ===================================================== */
+.description-container {
+    background: #fff;
+    border: 1px solid var(--bgc-border);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    width: 100%;
-  
+    overflow: hidden;
+}
+
+.description-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--bgc-orange);
+}
+
+.description-container:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 103, 67, 0.4);
+    box-shadow: 0 16px 32px rgba(255, 103, 67, 0.08);
+}
+
+.intro-lead {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--bgc-border);
+}
+
+.theme-box {
+    background: rgba(255, 103, 67, 0.05);
+    border-left: 4px solid var(--bgc-orange);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.theme-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--text-soft);
+    margin-bottom: 8px;
+}
+
+.theme-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--bgc-maroon);
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.theme-focus {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+}
+
+.focus-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--bgc-maroon);
+    margin: 20px 0 10px;
+}
+
+.focus-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.focus-list li {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+/* =====================================================
+   INFO CARDS
+   ===================================================== */
+.info-card {
+    background: #fff;
+    border: 1px solid var(--bgc-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .info-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #E8572A 0%, #ff6a3a 100%);
+    background: var(--bgc-orange);
 }
 
 .info-card:hover {
-    box-shadow: 0 20px 50px rgba(61, 12, 17, 0.18), 
-                0 8px 20px rgba(0, 0, 0, 0.12);
     transform: translateY(-4px);
+    border-color: rgba(255, 103, 67, 0.4);
+    box-shadow: 0 16px 32px rgba(255, 103, 67, 0.08);
 }
 
-/* ============================= */
-/* KEEP YOUR ORIGINAL CONTENT STYLES */
-/* ============================= */
-
-/* (No changes below — your typography, lists, etc. remain SAME) */
-
 .card-header {
-    background: linear-gradient(135deg, #3D0C11 0%, #2A0809 100%);
-    padding: 16px 20px;
-    border-bottom: 2px solid rgba(232, 87, 42, 0.3);
+    background: var(--bgc-maroon-dark);
+    padding: 14px 20px;
 }
 
 .card-header h3 {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-size: 1.05rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #E8572A;
+    color: var(--bgc-orange);
     margin: 0;
 }
 
 .card-content {
     padding: 20px;
 }
-/* Flip Cards Section */
-.flip-cards-section{
- display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  justify-items: center;
+
+/* Date items */
+.date-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--bgc-border);
+}
+
+.date-item:last-child {
+    border-bottom: none;
+}
+
+.date-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--text-soft);
+}
+
+.date-item .value {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--bgc-maroon);
+}
+
+.date-item .value small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--bgc-orange-dark);
+    margin-left: 6px;
+}
+
+/* Editorial list chips */
+.editorial-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.editorial-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    line-height: 1.55;
+    background: var(--bgc-surface);
+    border: 1px solid var(--bgc-border);
+    padding: 8px 14px;
+    border-radius: 99px;
+}
+
+.editorial-list li::before {
+    content: "•";
+    color: var(--bgc-orange);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Springer logo wrapper */
+.research-logo-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.research-logo {
+    width: 130px;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--bgc-border);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.research-logo img {
+    max-width: 100%;
+    object-fit: scale-down;
+}
+
+/* =====================================================
+   FLIP CARDS — submission page (publication covers)
+   ===================================================== */
+.flip-cards-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 50px;
+    justify-items: center;
 }
 
 .flip-card {
-  background-color: transparent;
-  width: 100%;
-  max-width: 260px;
-  height: 260px;
-  perspective: 1000px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    width: 100%;
+    max-width: 240px;
+    height: 240px;
+    perspective: 1000px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner,
+/* Hover only on pointer devices */
+@media (hover: hover) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* JS-driven flipped state */
 .flip-card.is-flipped .flip-card-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.flip-card-front {
+    background: #fff;
+    border: 1px solid var(--bgc-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flip-card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down;
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
 }
 
 .flip-card-back {
-  background-color: #3D0C11;
-  color: #fdfbfb;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
+    background-color: var(--bgc-maroon);
+    color: #fff;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(61, 12, 17, 0.25);
 }
 
+.flip-card-back h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+}
 
-/* Submission Instructions */
+.flip-card-back p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* =====================================================
+   SUBMISSION INSTRUCTIONS
+   ===================================================== */
 .submission-instructions {
-    background: white;
-    padding: 50px;
+    background: #fff;
+    border: 1px solid var(--bgc-border);
     border-radius: 20px;
-    box-shadow: 0 16px 48px rgba(61, 12, 17, 0.14),
-                0 6px 16px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(232, 87, 42, 0.12);
+    padding: 36px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
     line-height: 1.8;
-    color: #1a1a1a;
+    color: var(--text-main);
+}
+
+.submission-instructions::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--bgc-orange);
 }
 
 .submission-instructions p {
-    margin-bottom: 18px;
-    font-size: 0.95rem;
+    margin-bottom: 16px;
+    font-size: 0.92rem;
+    color: var(--text-soft);
 }
 
 .highlight {
     font-weight: 700;
-    color: #3D0C11;
-    font-size: 1rem;
-    padding: 16px;
-    background: linear-gradient(135deg, rgba(61, 12, 17, 0.05) 0%, rgba(232, 87, 42, 0.05) 100%);
-    border-left: 4px solid #E8572A;
-    border-radius: 8px;
+    font-size: 0.92rem;
+    padding: 14px 18px;
+    background: rgba(255, 103, 67, 0.06);
+    border-left: 4px solid var(--bgc-orange);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--bgc-maroon);
+    margin-bottom: 20px;
 }
 
 .submit-highlight {
-    background: rgba(232, 87, 42, 0.12);
-    padding: 16px;
-    border-radius: 8px;
+    background: rgba(255, 103, 67, 0.08);
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--bgc-orange);
     font-weight: 700;
-    color: #E8572A;
-    border-left: 4px solid #E8572A;
+    font-size: 0.92rem;
+    color: var(--bgc-orange-dark);
+    margin-bottom: 20px;
 }
 
 .submission-instructions h4 {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #3D0C11;
-    margin: 30px 0 16px 0;
-    padding-bottom: 12px;
-    border-bottom: 2px solid rgba(232, 87, 42, 0.3);
+    color: var(--bgc-maroon);
+    margin: 28px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 103, 67, 0.25);
+}
+
+.submission-instructions a {
+    color: var(--bgc-orange-dark);
+    font-weight: 700;
+    border-bottom: 2px solid var(--bgc-orange-dark);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.submission-instructions a:hover {
+    color: var(--bgc-maroon);
+    border-bottom-color: var(--bgc-maroon);
 }
 
 .steps {
     list-style: none;
     padding: 0;
-    margin-bottom: 18px;
-    background: rgba(232, 87, 42, 0.05);
-    padding: 16px;
-    border-radius: 8px;
+    margin-bottom: 20px;
+    background: rgba(255, 103, 67, 0.04);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
 }
 
 .steps li {
-    padding: 10px 0 10px 28px;
+    padding: 10px 16px 10px 42px;
     position: relative;
-    font-size: 0.92rem;
-    color: #555;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    border-bottom: 1px solid var(--bgc-border);
+}
+
+.steps li:last-child {
+    border-bottom: none;
 }
 
 .steps li::before {
     content: "→";
     position: absolute;
-    left: 0;
-    color: #E8572A;
+    left: 14px;
+    color: var(--bgc-orange);
     font-weight: 800;
-    font-size: 1.2rem;
-}
-
-.submission-instructions a {
-    color: #E8572A;
-    text-decoration: none;
-    font-weight: 700;
-    border-bottom: 2px solid #E8572A;
-    transition: all 0.3s ease;
-}
-
-.submission-instructions a:hover {
-    color: #d94415;
-    border-bottom-color: #d94415;
+    font-size: 1rem;
 }
 
 .disclaimer {
-    font-size: 0.85rem;
-    color: #999;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(232, 87, 42, 0.2);
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    opacity: 0.7;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--bgc-border);
 }
 
-/* Responsive Design */
+/* =====================================================
+   RESPONSIVE BREAKPOINTS
+   ===================================================== */
+
+/* Large tablet */
 @media (max-width: 1024px) {
     .research-content-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
     }
 
-    .research-title {
-        font-size: 2.2rem;
+    .flip-cards-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width: 860px) {
+    /* Disable hover flip — touch uses .is-flipped via JS */
+    .flip-card:hover .flip-card-inner {
+        transform: none;
     }
 
-    .description-container {
-        aspect-ratio: auto;
-        min-height: 450px;
-    }
-
-    .research-right-content {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .research-logo-wrapper {
-        justify-content: flex-start;
-        gap: 1.5rem;
+    .flip-card.is-flipped .flip-card-inner {
+        transform: rotateY(180deg);
     }
 
     .flip-cards-section {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .research-track {
-        padding: 60px 0;
-    }
-
-    .research-container {
-        padding: 0 16px;
-    }
-
-    .research-title {
-        font-size: 1.8rem;
-    }
-
-    .research-right-content {
-        grid-template-columns: 140px 1fr;
-        gap: 20px;
-    }
-
-    .research-logo-wrapper {
-        gap: 1rem;
-    }
-
-    .research-logo {
-        width: 140px;
-        height: 140px;
-    }
-
-    .logo-overlay {
-        font-size: 1.1rem;
-        height: 45px;
-    }
-
-    .description-container {
-        aspect-ratio: auto;
-        min-height: 400px;
-        padding: 28px;
-    }
-
-    .flip-cards-section {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 14px;
     }
 
     .flip-card {
         max-width: 100%;
-        height: 280px;
+        height: 200px;
+    }
+
+    .research-logo-wrapper {
+        flex-direction: column;
     }
 
     .submission-instructions {
-        padding: 30px;
-    }
-
-    .info-card {
-        margin: 0;
-    }
-
-    .intro-lead {
-        font-size: 0.95rem;
-    }
-
-    .card-header h3 {
-        font-size: 1rem;
+        padding: 24px;
     }
 }
 
-@media (max-width: 480px) {
-    .research-track {
-        padding: 40px 0;
+/* Large phones */
+@media (max-width: 600px) {
+    .flip-cards-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
-    .research-container {
-        padding: 0 12px;
-    }
-
-    .research-title {
-        font-size: 1.4rem;
-    }
-
-    .research-right-content {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .research-logo {
-        width: 120px;
-        height: 120px;
-        align-self: center;
-    }
-
-    .logo-overlay {
-        font-size: 0.95rem;
-        height: 40px;
-    }
-
-    .theme-label {
-        font-size: 1rem;
-    }
-
-    .description-container {
-        aspect-ratio: auto;
-        min-height: 350px;
-        padding: 20px;
-        border-radius: 12px;
-    }
-
-    .intro-lead {
-        font-size: 0.9rem;
-        margin-bottom: 16px;
-        padding-bottom: 14px;
-    }
-
-    .theme-box {
-        padding: 14px;
-        margin-bottom: 16px;
-    }
-
-    .card-header h3 {
-        font-size: 0.95rem;
+    .flip-card {
+        height: 180px;
+        max-width: 100%;
     }
 
     .flip-card-back h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+    .flip-card-back p {
+        font-size: 0.78rem;
+    }
+
+    .theme-label {
+        font-size: 1.4rem;
+    }
+
+    .theme-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .description-container {
+        padding: 20px;
     }
 
     .submission-instructions {
-        padding: 20px;
+        padding: 18px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .editorial-list li {
         border-radius: 12px;
+        font-size: 0.84rem;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .flip-cards-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .flip-card {
+        height: 155px;
+    }
+
+    .theme-label {
+        font-size: 1.2rem;
+    }
+
+    .flip-card-back h3 {
+        font-size: 0.88rem;
+    }
+
+    .flip-card-back p {
+        font-size: 0.72rem;
+    }
+
+    .submission-instructions {
+        padding: 14px;
+    }
+
+    .highlight,
+    .submit-highlight {
+        padding: 10px 14px;
     }
 }

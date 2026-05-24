@@ -1,18 +1,45 @@
-// Flip card functionality
-// Add tap/click interactivity for mobile-friendly flipping
+/**
+ * sponsor.js
+ * Handles flip card exclusive toggling and table row interactions.
+ */
+
+// ── Flip Cards ──────────────────────────────────────────────────────────────
+// Only one card can be open at a time.
+// Opening a new card automatically closes the previously open one.
+
+let activeCard = null;
+
 document.querySelectorAll('.flip-card').forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('is-flipped');
-  });
-});
 
-// table functionality
-const rows = document.querySelectorAll(".sponsor-table tbody tr");
+    // Make keyboard-accessible
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
 
-rows.forEach((row) => {
-
-    row.addEventListener("mouseenter", () => {
-        row.style.cursor = "pointer";
+    // Click / tap handler
+    card.addEventListener('click', () => {
+        if (card === activeCard) {
+            // Tap the same card → close it
+            card.classList.remove('is-flipped');
+            activeCard = null;
+        } else {
+            // Close the previously open card, open the new one
+            if (activeCard) activeCard.classList.remove('is-flipped');
+            card.classList.add('is-flipped');
+            activeCard = card;
+        }
     });
 
+    // Enter / Space for keyboard users
+    card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+        }
+    });
+});
+
+// ── Sponsor Table ────────────────────────────────────────────────────────────
+
+document.querySelectorAll('.sponsor-table tbody tr').forEach(row => {
+    row.style.cursor = 'pointer';
 });
