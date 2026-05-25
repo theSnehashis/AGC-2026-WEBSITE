@@ -1,6 +1,6 @@
 // Flip card functionality
 let activeCard = null;
-
+ 
 document.querySelectorAll('.flip-card').forEach(card => {
   card.addEventListener('click', () => {
     if (activeCard && activeCard !== card) {
@@ -10,16 +10,16 @@ document.querySelectorAll('.flip-card').forEach(card => {
     activeCard = card.classList.contains('is-flipped') ? card : null;
   });
 });
-
+ 
 // table functionality
 const rows = document.querySelectorAll(".sponsor-table tbody tr");
-
+ 
 rows.forEach((row) => {
   row.addEventListener("mouseenter", () => {
     row.style.cursor = "pointer";
   });
 });
-
+ 
 // yt js
 document.querySelectorAll('.video-box').forEach(box => {
   box.addEventListener('mouseenter', () => {
