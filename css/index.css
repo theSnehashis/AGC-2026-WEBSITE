@@ -186,6 +186,18 @@
       transform: rotateY(180deg);
     }
 
+    /* Desktop/laptop hover flip — only fires on devices with a real pointer (mouse).
+   The @media (hover: hover) and (pointer: fine) guard ensures touch devices
+   are completely unaffected. */
+@media (hover: hover) and (pointer: fine) {
+  .chair-card:hover .chair-inner {
+    transform: rotateY(180deg);
+  }
+  .chair-card:hover .flip-hint {
+    opacity: 0;
+  }
+}
+
     .chair-front,
     .chair-back {
       position: absolute;
