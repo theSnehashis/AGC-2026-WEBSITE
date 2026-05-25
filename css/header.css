@@ -241,128 +241,122 @@
        RESPONSIVE — Collapse nav (≤ 860px)
     ══════════════════════════════════════ */
     @media (max-width: 860px) {
-      :root { --header-logo-h: var(--header-logo-h-m); }
- 
-      .nav-toggle { display: flex; }
- 
-      /* FIX #4 on mobile: keep logos spaced to edges but leave room for toggle */
-      .header-row1 {
-        padding-right: calc(clamp(12px,3vw,24px) + 38px + 14px);
-        min-height: 72px;
-      }
- 
-      .logo-divider { height: 36px; }
- 
-      .header-row2 {
-        display: none;
-        border-top: 1px solid rgba(255,255,255,.08);
-      }
-      .header-row2.open { display: block; }
- 
-      /* Vertical stacked menu */
-      .nav-list {
-        flex-direction: column;
-        height: auto;
-      }
- 
-      .nav-list > li {
-        flex: none;
-        justify-content: flex-start;
-        border-bottom: 1px solid rgba(255,255,255,.07);
-        position: relative;   /* needed for absolute-positioned dropdown */
-      }
-      .nav-list > li + li::before { display: none; }
- 
-      .nav-list > li > a {
-        justify-content: flex-start;
-        padding: 13px 20px;
-        font-size: 13px;
-        letter-spacing: .5px;
-        border-bottom: none;
-        border-left: 3px solid transparent;
-        white-space: normal;
-      }
-      .nav-list > li > a:hover,
-      .nav-list > li > a.active {
-        border-left-color: var(--orange);
-        border-bottom-color: transparent;
-        background: rgba(255,255,255,.06);
-      }
- 
-      /* FIX #3: Gallery arrow — right ▶ by default, down ▼ when open */
-      .nav-list > li.has-dropdown > a .cv::before { content: '▶'; }
-      .nav-list > li.has-dropdown.open > a .cv::before { content: '◀'; }
- 
-      /* Accordion dropdowns — hidden by default, shown only when .open */
-      .nav-list > li:hover .nav-dropdown { display: none; }  /* disable hover on mobile */
-      .nav-list > li.open  .nav-dropdown { display: flex; }  /* show on tap */
- 
-      /* FIX #2: Gallery dropdown as a row, with separator at exact 50% of screen */
-      .nav-dropdown {
-        position: static;
-        box-shadow: none;
-        border-top: 1px solid rgba(255,255,255,.10);
-        border-left: none;
-        margin-left: 0;
-        background: rgba(0,0,0,.22);
-        min-width: 0;
-        display: none;           /* hidden by default — overridden by .open above */
-        flex-wrap: nowrap;
-        width: 100%;
-      }
- 
-      /* GALLERY label takes up exactly half the row, AGC items share the other half */
-      .has-dropdown {
-        position: relative;
-        flex-direction: column;  /* stack: the <a> row + the dropdown row */
-        align-items: stretch;
-      }
- 
-      /* The GALLERY row itself: label on left half, dropdown on right half, separator in center */
-      .has-dropdown > a {
-        width: 50%;              /* label occupies left half */
-        border-right: 2px solid var(--orange); /* the CENTER divider line */
-        padding: 13px 20px;
-      }
- 
-      /* Dropdown sits in a flex row taking the right 50% of the GALLERY row */
-      .nav-list > li.has-dropdown.open {
-        min-height: 120px;       /* room for 3 sub-items at ~40px each */
-      }
- 
-      .nav-list > li.open .nav-dropdown {
-        position: absolute;
-        top: 0;
-        left: 50%;               /* start exactly at the center */
-        width: 50%;              /* fill right half */
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background: rgba(0,0,0,.22);
-        border-left: none;
-        border-top: none;
-        z-index: 10;
-      }
- 
-      .nav-dropdown li {
-        flex: 1;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,.08);
-      }
-      .nav-dropdown li:last-child { border-bottom: none; }
- 
-      .nav-dropdown li a {
-        font-size: 12px;
-        padding: 8px 10px;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-bottom: none;
-        height: 100%;
-      }
-    }
- 
+  :root { --header-logo-h: var(--header-logo-h-m); }
+
+  .nav-toggle { display: flex; }
+
+  .header-row1 {
+    padding-right: calc(clamp(12px,3vw,24px) + 38px + 14px);
+    min-height: 72px;
+  }
+
+  .logo-divider { height: 36px; }
+
+  .header-row2 {
+    display: none;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .header-row2.open { display: block; }
+
+  /* Vertical stacked menu */
+  .nav-list {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .nav-list > li {
+    flex: none;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    position: relative;
+  }
+  .nav-list > li + li::before { display: none; }
+
+  .nav-list > li > a {
+    justify-content: flex-start;
+    padding: 13px 20px;
+    font-size: 13px;
+    letter-spacing: .5px;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+    white-space: normal;
+    width: 100%;          /* full width — no more 50% split */
+  }
+  .nav-list > li > a:hover,
+  .nav-list > li > a.active {
+    border-left-color: var(--orange);
+    border-bottom-color: transparent;
+    background: rgba(255,255,255,.06);
+  }
+
+  /* Arrow: right ▶ by default, flips to down ▼ when open */
+  .nav-list > li.has-dropdown > a .cv::before { content: '▶'; }
+  .nav-list > li.has-dropdown.open > a .cv::before { content: '▼'; }
+
+  /* Disable hover-based dropdowns on mobile */
+  .nav-list > li:hover .nav-dropdown { display: none; }
+  /* Show on tap/.open */
+  .nav-list > li.open  .nav-dropdown { display: flex; }
+
+  /* ── Dropdown: full-width accordion below the label ── */
+  .nav-dropdown {
+    position: static;          /* no longer absolute-positioned */
+    box-shadow: none;
+    border-top: 1px solid rgba(255,255,255,.10);
+    border-left: 3px solid var(--orange);  /* left-indent accent */
+    margin-left: 0;
+    background: rgba(0,0,0,.30);
+    min-width: 0;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .has-dropdown {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* No forced min-height needed anymore */
+  .nav-list > li.has-dropdown.open {
+    min-height: unset;
+  }
+
+  .nav-list > li.open .nav-dropdown {
+    position: static;
+    top: unset;
+    left: unset;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+  }
+
+  .nav-dropdown li {
+    flex: none;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-dropdown li:last-child { border-bottom: none; }
+
+  .nav-dropdown li a {
+    font-size: 12.5px;
+    padding: 11px 28px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  /* left-align sub-items */
+    border-bottom: none;
+    height: auto;
+    color: rgba(255,255,255,.75);
+  }
+  .nav-dropdown li a:hover {
+    color: var(--orange);
+    background: rgba(255,255,255,.05);
+  }
+}
+
     /* ══════════════════════════════════════
        RESPONSIVE — Mobile (≤ 600px)
     ══════════════════════════════════════ */
